@@ -1,2 +1,1 @@
-//= components/test.js
-console.log('OK');
+//= components/tableButton.js

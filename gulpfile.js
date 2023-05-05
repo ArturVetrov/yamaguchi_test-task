@@ -58,7 +58,7 @@ function html() {
 function css() {
   return src(path.src.css, { base: srcPath + "assets/scss/" })
   /* .pipe(plumber()) */
-  .pipe(sass())
+  .pipe(sass({}))
   .pipe(autoprefixer())
   .pipe(cssbeautify())
   .pipe(dest(path.build.css))

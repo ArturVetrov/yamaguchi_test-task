@@ -1,3 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Ubuntu:wght@300&display=swap");
+
 body {
     margin: 0;
+}
+
+#disable {
+    background-color: #F3F3F3;
+    color: #FFFFFF;
+    cursor: default;
+    border: 1px solid rgb(255, 87, 87);
+    box-shadow: none;
+}
+
+.table {
+    background-color: #F3F3F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block__table--wrapper {
+    width: 1150px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.block__heading--text h2 {
+    color: #0B64FE;
+    font-family: Ubuntu, sans-serif;
+    font-weight: 300;
+    font-size: 62px;
+    line-height: 62px;
+}
+
+.block__heading--text p {
+    color: #181818;
+    font-family: Ubuntu, sans-serif;
+    font-size: 22px;
+    line-height: 37px;
+    text-align: left;
+    max-width: 473px;
+}
+
+.block__table--images {
+    position: absolute;
+    left: -300px;
+}
+
+.block__table--images .block__table--top {
+    position: absolute;
+    top: -5px;
+    background-image: url("./../images/table-top.png");
+    width: 1165px;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.block__table--images .block__table--down {
+    background-image: url("./../images/table-down.png");
+    width: 1165px;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.block__table--images .block__table--button {
+    position: absolute;
+    top: 462px;
+    left: 342px;
+    display: flex;
+    gap: 70px;
+}
+
+.block__table--images .block__table--button button {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: none;
+    background-color: #A6FFFF;
+    font-family: Ubuntu, sans-serif;
+    font-size: 40px;
+    line-height: 68px;
+    cursor: pointer;
+}
+
+.block__table--images .block__table--button button:hover {
+    border: 1px solid;
+}
+
+.block__table--images .block__table--button button:active {
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+}
+
+.block__table__lower--text p {
+    color: #181818;
+    font-family: "Ubuntu";
+    font-size: 21px;
+    line-height: 37px;
+    text-align: left;
+    max-width: 473px;
+}
+
+@media screen and (max-width: 1200px) {
+    .block__table--wrapper {
+        width: 100%;
+        align-items: center;
+    }
+
+    .block__table--wrapper .block__table--images {
+        position: relative;
+        left: auto;
+    }
+
+    .block__table--wrapper .block__table--top,
+  .block__table--wrapper .block__table--down {
+        width: 703px;
+        background-position: -246px;
+    }
+
+    .block__table--wrapper .block__table--button {
+        left: 115px;
+    }
+}
+
+@media screen and (max-width: 858px) {
+    .block__table--wrapper {
+        padding: 12px;
+    }
+
+    .block__heading--text h2 {
+        font-family: Bebas Neue, sans-serif;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 38px;
+    }
+
+    .block__heading--text p {
+        font-size: 16px;
+        line-height: 27px;
+    }
+
+    .block__table--images .block__table--top,
+  .block__table--images .block__table--down {
+        background-size: contain;
+        background-position: center;
+        width: 400px;
+        height: 350px;
+    }
+
+    .block__table--images .block__table--button {
+        top: 200px;
+        left: 0px;
+        display: flex;
+        gap: 70px;
+    }
+
+    .block__table--images .block__table--button button {
+        width: 61px;
+        height: 61px;
+        font-size: 12px;
+        line-height: 21px;
+    }
+
+    .block__table__lower--text p {
+        font-size: 16px;
+        line-height: 27px;
+    }
 }
