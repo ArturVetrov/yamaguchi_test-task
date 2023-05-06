@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;900&family=Ubuntu:wght@300&display=swap");
 
 body {
     margin: 0;
@@ -17,6 +17,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    display: none;
 }
 
 .block__table--wrapper {
@@ -28,7 +29,7 @@ body {
     position: relative;
 }
 
-.block__heading--text h2 {
+.block__table--heading--text h2 {
     color: #0B64FE;
     font-family: Ubuntu, sans-serif;
     font-weight: 300;
@@ -36,7 +37,7 @@ body {
     line-height: 62px;
 }
 
-.block__heading--text p {
+.block__table--heading--text p {
     color: #181818;
     font-family: Ubuntu, sans-serif;
     font-size: 22px;
@@ -72,7 +73,7 @@ body {
 .block__table--images .block__table--button {
     position: absolute;
     top: 462px;
-    left: 342px;
+    left: 362px;
     display: flex;
     gap: 70px;
 }
@@ -106,6 +107,77 @@ body {
     max-width: 473px;
 }
 
+/* Voice Control */
+.voice--control {
+  /* background-color: $black; */
+    width: 100vw;
+    background: #181818 url("../images/background-pattern.svg") 0px -15px repeat-y;
+}
+
+.block__voice--control {
+    padding: 60px 60px 35px;
+}
+
+.block__voice--control--wraper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block__voice--control--text {
+    max-width: 569px;
+}
+
+.block__voice--control--text h1 {
+    color: #FFFFFF;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 80px;
+    margin: 0;
+}
+
+.block__voice--control--text p {
+    color: #FFFFFF;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 37px;
+    margin: 46px 0 30px;
+}
+
+.block__voice--control__lower--text {
+    max-width: 800px;
+}
+
+.block__voice--control__lower--text h2 {
+    color: #FFFFFF;
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 40px;
+    margin: 0;
+}
+
+.block__voice--control__lower--text h3 {
+    color: #FFFFFF;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 61px;
+    line-height: 55px;
+    margin-left: 4vw;
+    white-space: nowrap;
+}
+
+.block__voice--control--interface {
+    width: 780px;
+    height: 780px;
+    background-image: url("../images/voice-interface.svg");
+    background-size: cover;
+    position: fixed;
+    top: 75px;
+    right: -60px;
+}
+
 @media screen and (max-width: 1200px) {
     .block__table--wrapper {
         width: 100%;
@@ -131,18 +203,20 @@ body {
 @media screen and (max-width: 858px) {
     .block__table--wrapper {
         padding: 12px;
+        background-color: #F3F3F3;
     }
 
-    .block__heading--text h2 {
+    .block__table--heading--text h2 {
         font-family: Bebas Neue, sans-serif;
         font-weight: 700;
         font-size: 38px;
         line-height: 38px;
     }
 
-    .block__heading--text p {
+    .block__table--heading--text p {
         font-size: 16px;
         line-height: 27px;
+        max-width: 297px;
     }
 
     .block__table--images .block__table--top,
@@ -150,14 +224,13 @@ body {
         background-size: contain;
         background-position: center;
         width: 400px;
-        height: 350px;
+        height: 260px;
     }
 
     .block__table--images .block__table--button {
-        top: 200px;
-        left: 0px;
-        display: flex;
-        gap: 70px;
+        top: 170px;
+        left: 128px;
+        gap: 23px;
     }
 
     .block__table--images .block__table--button button {
@@ -170,5 +243,21 @@ body {
     .block__table__lower--text p {
         font-size: 16px;
         line-height: 27px;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .block__table--images .block__table--top,
+  .block__table--images .block__table--down {
+        background-size: contain;
+        background-position: center;
+        width: 290px;
+        height: 260px;
+    }
+
+    .block__table--images .block__table--button {
+        top: 216px;
+        left: 75px;
     }
 }

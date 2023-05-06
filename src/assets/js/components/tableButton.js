@@ -5,7 +5,12 @@ let height = 0;
 let heightMax = -60;
 let heightMin = 100;
 
+
 upBtn.addEventListener('mousedown', () => {
+  const screenWidth = window.screen.width
+  if (screenWidth < 860) {
+    heightMax = -20;
+  }
   if (!downBtn.querySelector('#disable')) {
     downBtn.removeAttribute('id');
   }
@@ -15,9 +20,14 @@ upBtn.addEventListener('mousedown', () => {
   }
   height -= 20;
   tableUp.style.top = height + 'px';
+  console.log(height);
 })
 
 downBtn.addEventListener('mousedown', () => {
+  const screenWidth = window.screen.width
+  if (screenWidth < 860) {
+    heightMin = 40;
+  } 
   if (!upBtn.querySelector('#disable')) {
     upBtn.removeAttribute('id');
   }
