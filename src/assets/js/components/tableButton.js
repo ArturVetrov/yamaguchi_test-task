@@ -5,7 +5,6 @@ let height = 0;
 let heightMax = -60;
 let heightMin = 100;
 
-
 upBtn.addEventListener('mousedown', () => {
   const screenWidth = window.screen.width
   if (screenWidth < 860) {

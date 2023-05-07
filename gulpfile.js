@@ -23,19 +23,22 @@ const path = {
     html: distPath,
     css: distPath + "assets/css",
     js: distPath + "assets/js/",
-    images: distPath + "assets/images"
+    images: distPath + "assets/images",
+    favicon: distPath,
   },
   src: {
     html: srcPath + "*.html",
     css: srcPath + "assets/scss/*.scss",
     js: srcPath + "assets/js/*.js",
     images: srcPath + "assets/images/*",
+    favicon: srcPath + "assets/favicon/*",
   },
   watch: {
     html: srcPath + "**/*.html",
     css: srcPath + "assets/scss/**/*.scss",
     js: srcPath + "assets/js/**/*.js",
     images: srcPath + "assets/images/*",
+    favicon: srcPath + "assets/favicon/*",
   },
   clean: "./" + distPath
 }
@@ -50,14 +53,20 @@ function serve() {
 
 function html() {
   return src(path.src.html, { base: srcPath })
-  /* .pipe(plumber())  */
+  .pipe(plumber()) 
   .pipe(dest(path.build.html))
   .pipe(browserSync.reload({ stream:true }))
 }
 
+function favicon() {
+  return src(path.src.favicon)
+  .pipe(plumber()) 
+  .pipe(dest(path.build.favicon))
+}
+
 function css() {
   return src(path.src.css, { base: srcPath + "assets/scss/" })
-  /* .pipe(plumber()) */
+  .pipe(plumber())
   .pipe(sass({}))
   .pipe(autoprefixer())
   .pipe(cssbeautify())
@@ -79,7 +88,7 @@ function css() {
 
 function js() {
   return src(path.src.js, { base: srcPath + "assets/js/" })
-  /* .pipe(plumber())  */
+  .pipe(plumber()) 
   .pipe(rigger())
   .pipe(dest(path.build.js))
   .pipe(uglify())
@@ -106,15 +115,17 @@ function watchFiles() {
   gulp.watch([path.watch.css], css)
   gulp.watch([path.watch.js], js)
   gulp.watch([path.watch.images], images)
+  gulp.watch([path.watch.favicon], favicon)
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images))
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, favicon))
 const watch = gulp.parallel(build, watchFiles, serve)
 
 exports.html = html
 exports.css = css
 exports.js = js
 exports.images = images
+exports.favicon = favicon
 exports.clean = clean
 exports.build = build
 exports.watch = watch

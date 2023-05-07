@@ -26,7 +26,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
+  overflow: hidden;
 }
 
 .block__table--wrapper {
@@ -115,75 +115,6 @@ body {
     max-width: 473px;
   }
 }
-
-/* Voice Control */
-  
-.voice--control {
-  /* background-color: $black; */
-  width: 100vw;
-  background: $black url('../images/background-pattern.svg') 0px -15px repeat-y ;
-}
-
-.block__voice--control {
-  padding: 60px 60px 35px;
-}
-
-.block__voice--control--wraper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.block__voice--control--text {
-  max-width: 569px;
-  h1 {
-    color: $white;
-    font-family: $montserrat;
-    font-weight: 400;
-    font-size: 56px;
-    line-height: 80px;
-    margin: 0;
-  }
-  p {
-    color: $white;
-    font-family: $montserrat;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 37px;
-    margin: 46px 0 30px;
-  }
-}
-
-.block__voice--control__lower--text {
-  max-width: 800px;
-  h2 {
-    color: $white;
-    font-family: $montserrat;
-    font-weight: 900;
-    font-size: 45px;
-    line-height: 40px;
-    margin: 0;
-  }
-  h3 {
-    color: $white;
-    font-family: $montserrat;
-    font-weight: 400;
-    font-size: 61px;
-    line-height: 55px;
-    margin-left: 4vw;
-    white-space: nowrap;
-  }
-}
-
-.block__voice--control--interface {
-  width: 780px;
-  height: 780px;
-  background-image: url('../images/voice-interface.svg');
-  background-size: cover;
-  position: fixed;
-  top: 75px;
-  right: -60px;
-}
-
 @media screen and (max-width: 1200px) { 
   .block__table--wrapper {
     width: 100%;
@@ -271,3 +202,172 @@ body {
     }
   }
  }
+
+/* Voice Control */
+  
+.voice--control {
+  width: 100vw;
+  background: $black url('../images/background-pattern.svg') 0px -15px repeat-y ;
+}
+
+.block__voice--control {
+  padding: 60px 60px 35px;
+  overflow: hidden;
+}
+
+.block__voice--control--wraper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 1900px;
+  margin: 0 auto;
+}
+
+.block__voice--control--text {
+  max-width: 569px;
+  h1 {
+    color: $white;
+    font-family: $montserrat;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 80px;
+    margin: 0;
+  }
+  p {
+    color: $white;
+    font-family: $montserrat;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 37px;
+    margin: 46px 0 30px;
+  }
+}
+
+.block__voice--control__lower--text {
+  max-width: 800px;
+  h2 {
+    color: $white;
+    font-family: $montserrat;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 40px;
+    margin: 0;
+  }
+  h3 {
+    color: $white;
+    font-family: $montserrat;
+    font-weight: 400;
+    font-size: 61px;
+    line-height: 55px;
+    margin-left: 4vw;
+    white-space: nowrap;
+  }
+}
+
+.block__voice--control--animation {
+  width: 300px;
+  height: 850px;
+  border-radius: 0px 0px 68px 68px;
+  position: absolute;
+  bottom: 0px;
+  left: 43%;
+  overflow: hidden;
+
+  .block__voice--control--people {
+    background: url('../images/people-voice.png') bottom no-repeat;
+    width: 350px;
+    height: 750px;
+    position: absolute;
+    left: -26px;
+    bottom: -753px;
+    z-index: 10;
+  }
+
+  .block__voice--control--hole {
+    width: 300px;
+    height: 100px;
+    background: url('../images/black-hole.svg') bottom no-repeat;
+    background-size: auto;
+    position: absolute;
+    bottom: 23px;
+    z-index: 5;
+  }
+}
+
+.block__voice--control--interface {
+  width: 780px;
+  height: 780px;
+  background-image: url('../images/voice-interface.svg');
+  background-size: cover;
+  position: absolute;
+  top: 10px;
+  right: -130px;
+}
+
+@media (max-width: 1590px) { 
+  .block__voice--control {
+    padding: 17px;
+  }
+  .block__voice--control--wraper {
+    align-items: center;
+  }
+  .block__voice--control--animation {
+    position: relative;
+    left: unset;
+  }
+  .block__voice--control--interface {
+    position: unset;
+    margin: 50px 0 10px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .block__voice--control--text {
+    h1 {
+      font-size: 34px;
+      line-height: 40px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 27px;
+    }
+  }
+
+  .block__voice--control__lower--text {
+    h2 {
+      font-size: 38px;
+      line-height: 35px;
+    }
+    h3 {
+      font-size: 50px;
+      line-height: 45px;
+    }
+  }
+
+  .block__voice--control--animation {
+    height: 450px;
+    .block__voice--control--people {
+      width: 290px;
+      height: 350px;
+      background-size: contain;
+      left: 11px;
+    }
+  }
+
+  .block__voice--control--interface {
+    width: 92vw;
+    height: 100vw;
+  }
+}
+
+@media screen and (max-width: 500px) { 
+  /* .block__voice--control--animation {
+    top: 34%;
+  } */
+
+  .block__voice--control__lower--text {
+    h3 {
+      white-space: normal;
+    }
+  }
+}
