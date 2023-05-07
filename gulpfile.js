@@ -13,6 +13,7 @@ const plumber = require("gulp-plumber");
 const del = require("del");
 const rigger = require("gulp-rigger");
 const browserSync = require("browser-sync").create();
+const ghPages = require("gulp-gh-pages");
 
 /* Paths */
 const srcPath = "src/"
@@ -39,6 +40,10 @@ const path = {
     js: srcPath + "assets/js/**/*.js",
     images: srcPath + "assets/images/*",
     favicon: srcPath + "assets/favicon/*",
+  },
+  deploy: {
+    src: distPath + "/**",
+    dest: "./build",
   },
   clean: "./" + distPath
 }
@@ -118,8 +123,14 @@ function watchFiles() {
   gulp.watch([path.watch.favicon], favicon)
 }
 
+function deploy() {
+  return src(path.deploy.src)
+  .pipe(ghPages())
+}
+
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, favicon))
 const watch = gulp.parallel(build, watchFiles, serve)
+const published = gulp.series(build, deploy)
 
 exports.html = html
 exports.css = css
@@ -127,6 +138,8 @@ exports.js = js
 exports.images = images
 exports.favicon = favicon
 exports.clean = clean
+exports.deploy = deploy
 exports.build = build
 exports.watch = watch
+exports.published = published
 exports.default = watch
